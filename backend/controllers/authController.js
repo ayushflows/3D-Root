@@ -6,7 +6,6 @@ const User = require('../models/userModel');
 /* GET Google Authentication API. */
 exports.googleAuth = async (req, res, next) => {
     const code = req.query.code;
-    console.log("hitted the auth,", code);
     try {
         const googleRes = await oauth2Client.getToken(code);
         oauth2Client.setCredentials(googleRes.tokens);
