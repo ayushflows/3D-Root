@@ -149,7 +149,7 @@ function Homepage() {
         </div> */}
 
         {/* Features Section */}
-        <div className="relative py-32 features-bg">
+        {/* <div className="relative py-32 features-bg">
           <div className="circle-animation circle-1" />
           <div className="circle-animation circle-2" />
           <div className="circle-animation circle-3" />
@@ -172,24 +172,24 @@ function Homepage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Multi-Material Printing",
-                  desc: "Print with multiple materials simultaneously for complex, functional parts.",
+                  title: "AI-Powered Business Consulting",
+                  desc: "Get instant, expert-driven guidance for starting, optimizing, and scaling your 3D printing business",
                 },
                 {
-                  title: "Advanced Calibration",
-                  desc: "Auto-calibration system ensures perfect bed leveling and print quality.",
+                  title: "Strategic Market Insights",
+                  desc: "Stay ahead with real-time trends, profitability analysis, and industry forecasts.",
                 },
                 {
-                  title: "Real-time Monitoring",
-                  desc: "Monitor your prints remotely with live HD camera feed and status updates.",
+                  title: "Smart Equipment Recommendations",
+                  desc: "Find the best 3D printers, materials, and software tailored to your business needs.",
                 },
                 {
-                  title: "Community Hub",
-                  desc: "Join our thriving community to share designs and get inspired.",
+                  title: "Hackathon & Innovation Support",
+                  desc: "Encourage breakthrough ideas and fund innovative projects in 3D printing.",
                 },
                 {
-                  title: "Layer Analysis",
-                  desc: "AI-powered layer analysis for optimal print quality and error detection.",
+                  title: "Affiliate Marketplace for Growth",
+                  desc: "Access one-stop platform for tools, resources, and strategic vendor partnerships.",
                 },
                 {
                   title: "Smart Workflow",
@@ -210,7 +210,105 @@ function Homepage() {
               ))}
             </div>
           </div>
+        </div> */}
+
+
+        <div className="relative py-32 features-bg">
+  {/* ✨ Floating Animated Orbs for Depth */}
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="orb-1 animate-pulse opacity-30" />
+    <div className="orb-2 animate-pulse opacity-30" />
+    <div className="orb-3 animate-pulse opacity-30" />
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+    {/* 🌟 Section Title */}
+    <div className="text-center mb-20">
+      <h2 className="text-5xl font-semibold text-white mb-4 tracking-tight leading-snug">
+        <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
+        How We Make an Impact
+        </span>
+      </h2>
+    </div>
+
+    {/* 🎨 Feature Cards Grid with Staggered Layout */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-14 gap-x-12">
+      {[
+        {
+          title: "AI-Powered Business Consulting",
+          desc: "Get expert-driven guidance to optimize and scale your 3D printing business.",
+        },
+        {
+          title: "Strategic Market Insights",
+          desc: "Stay ahead with real-time trends, profitability analysis, and forecasts.",
+        },
+        {
+          title: "Smart Equipment Recommendations",
+          desc: "Find the best 3D printers, materials, and software tailored to your needs.",
+        },
+        {
+          title: "Innovation & Hackathon Support",
+          desc: "Encourage groundbreaking ideas and fund innovative projects in 3D printing.",
+        },
+        {
+          title: "Affiliate Marketplace for Growth",
+          desc: "One-stop platform for tools, resources, and vendor partnerships.",
+        },
+        {
+          title: "Intelligent Workflow Automation",
+          desc: "Streamline your workflow with automated print queue management.",
+        },
+      ].map(({ title, desc }, i) => (
+        <div
+          key={i}
+          className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 
+          shadow-lg hover:shadow-purple-500/40 backdrop-blur-xl overflow-hidden 
+          transition-all duration-500 hover:-translate-y-2 hover:border-purple-400/50 flex flex-col items-center text-center h-full"
+        >
+          {/* ✨ Subtle Glow on Hover */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-indigo-500/10 opacity-0 
+          group-hover:opacity-20 transition-all duration-500"></div>
+
+          {/* 🎭 Floating Glow Effect */}
+          <div className="absolute -top-12 -left-12 w-24 h-24 bg-purple-400 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-all duration-500" />
+          <div className="absolute -bottom-12 -right-12 w-24 h-24 bg-indigo-500 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-all duration-500" />
+
+          {/* 📝 Card Content - Now Centered Properly */}
+          <div className="relative z-10 flex flex-col flex-grow justify-center items-center space-y-4">
+            <h3 className="text-2xl px-4 font-semibold text-white tracking-tight leading-snug">
+              {title}
+            </h3>
+            <p className="text-gray-300 text-md leading-relaxed mt-3 text-left w-full ">{desc}</p>
+
+          </div>
+
+          {/* 🟣 Subtle Border Glow */}
+          <div className="absolute inset-0 rounded-3xl bg-purple-500/10 opacity-0 
+          group-hover:opacity-30 transition duration-300 blur-2xl" />
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         {/* Get in Touch Section */}
         {/* <div className="relative py-24">
@@ -321,76 +419,23 @@ function Homepage() {
           <div className="footer-glow footer-glow-2" />
 
           <div className="max-w-6xl mx-auto px-4 relative z-10">
-            {/* <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-4 gap-8">
               <div className="scroll-reveal">
                 <div className="flex items-center space-x-2 mb-4">
-                  <Printer size={24} className="text-purple-400" />
-                  <h3 className="text-2xl font-light text-white">
-                    Print
+                  <h3 className="text-3xl font-light text-white">
+                    3D
                     <span className="font-normal bg-gradient-to-r from-purple-200 to-indigo-200 bg-clip-text text-transparent">
-                      Master
+                      Root
                     </span>
                   </h3>
                 </div>
                 <p className="text-gray-400 font-light">
-                  Revolutionizing the future of manufacturing through advanced 3D printing technology.
+                3DRoot is your trusted partner in achieving sustainable growth and innovation.
                 </p>
               </div>
 
-              <div className="scroll-reveal" style={{ transitionDelay: "0.2s" }}>
-                <h4 className="text-white font-light text-lg mb-4">Products</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      3D Printers
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Materials
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Software
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Accessories
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="scroll-reveal" style={{ transitionDelay: "0.4s" }}>
-                <h4 className="text-white font-light text-lg mb-4">Support</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Help Center
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Documentation
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Community
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Contact
-                    </a>
-                  </li>
-                </ul>
-              </div>
 
               <div className="scroll-reveal" style={{ transitionDelay: "0.6s" }}>
-                <h4 className="text-white font-light text-lg mb-4">Legal</h4>
                 <ul className="space-y-2">
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -403,19 +448,16 @@ function Homepage() {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Cookie Policy
-                    </a>
                   </li>
                 </ul>
               </div>
-            </div> */}
+            </div>
 
-            <div className="pt-12 border-t border-white/10 text-center scroll-reveal">
+            {/* <div className="pt-12 border-t border-white/10 text-center scroll-reveal">
               <p className="text-gray-400 font-light">
                 &copy; {new Date().getFullYear()} All rights reserved.
               </p>
-            </div>
+            </div> */}
           </div>
         </footer>
       </div>
