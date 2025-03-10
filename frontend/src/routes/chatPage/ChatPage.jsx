@@ -16,7 +16,6 @@ const ChatPage = () => {
     queryFn: async () => {
       // const token = localStorage.getItem("user-info");
       const token = JSON.parse(localStorage.getItem("user-info")).token;
-      console.log('sdfasdfsadfkj', token)
       if (!token) {
         throw new Error("Unauthenticated!"); // Handle auth error
       }

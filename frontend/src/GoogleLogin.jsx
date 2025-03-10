@@ -9,7 +9,6 @@ const GoolgeLogin = (props) => {
 	const responseGoogle = async (authResult) => {
 		try {
 			if (authResult["code"]) {
-				console.log("hitting request")
 				const result = await googleAuth(authResult.code);
 				const {email, name, image} = result.data.user;
 				const token = result.data.token;
@@ -18,7 +17,6 @@ const GoolgeLogin = (props) => {
 				localStorage.setItem('user-info',JSON.stringify(obj));
 				navigate('/dashboard');
 			} else {
-				console.log(authResult);
 				throw new Error(authResult);
 			}
 		} catch (e) {
