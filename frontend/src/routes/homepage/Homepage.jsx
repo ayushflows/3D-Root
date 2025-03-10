@@ -1,15 +1,18 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 import { Link, useNavigate } from "react-router-dom"
 import Navbar from '../../components/Navbar';
 import Chatbot from '../../components/Chatbot';
 import { LogIn } from "lucide-react";
 import { motion } from "framer-motion";
+import ContactForm from "../../components/ContactForm";
 
 function Homepage() {
   const navigate = useNavigate();
+  const [isContactShown, setContactShown] = useState(false);
+
   useEffect(() => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
@@ -48,12 +51,6 @@ function Homepage() {
 
   return (
     <div className="relative min-h-screen mesh-gradient overflow-hidden page-transition">
-      {/* <div className="fixed inset-0 grid-pattern opacity-30" /> */}
-
-      {/* <div className="fixed inset-0 overflow-hidden">
-        <div className="absolute inset-0 light-beam opacity-20" />
-        <div className="absolute inset-0 light-beam opacity-20" style={{ animationDelay: "-4s" }} />
-      </div> */}
 
       <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 opacity-15">
         {Array.from({ length: 144 }).map((_, i) => (
@@ -69,8 +66,8 @@ function Homepage() {
       <div className="absolute top-16 left-16 w-40 h-40 bg-purple-600/20 blur-3xl rounded-full animate-pulse"></div>
       <div className="absolute bottom-16 right-16 w-32 h-32 bg-indigo-500/20 blur-3xl rounded-full animate-pulse"></div>
 
-      <Navbar />
-
+      <Navbar isContactShown={isContactShown} setContactShown={setContactShown} />
+      {isContactShown && <ContactForm isContactShown={isContactShown} setContactShown={setContactShown} />}
       <div className="relative pt-16">
         {/* Hero Section */}
         <div className="relative max-w-7xl mx-auto px-4 py-20 lg:mt-28 lg:mb-12 ">
@@ -115,103 +112,6 @@ function Homepage() {
             </div>
           </div>
         </div>
-
-        {/* Core Features Section */}
-        {/* <div className="relative max-w-6xl mx-auto px-4 py-24">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Cpu,
-                title: "Precision Engineering",
-                desc: "Industry-leading accuracy with cutting-edge technology for flawless prints.",
-              },
-              {
-                icon: Zap,
-                title: "Smart Assistance",
-                desc: "AI-powered support available 24/7 to ensure your printing success.",
-              },
-              { icon: Layers, title: "Future-Ready", desc: "Stay ahead with regular updates and innovative features." },
-            ].map(({ icon: Icon, title, desc }, i) => (
-              <div
-                key={i}
-                className="group glass-effect p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-all duration-500 hover:transform hover:scale-105 scroll-reveal"
-                style={{ transitionDelay: `${i * 0.2}s` }}
-              >
-                <div className="flex items-center mb-4">
-                  <Icon size={24} className="text-purple-400 mr-3" />
-                  <h3 className="text-xl font-light text-white">{title}</h3>
-                </div>
-                <p className="text-gray-400 font-light">{desc}</p>
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-            ))}
-          </div>
-        </div> */}
-
-        {/* Features Section */}
-        {/* <div className="relative py-32 features-bg">
-          <div className="circle-animation circle-1" />
-          <div className="circle-animation circle-2" />
-          <div className="circle-animation circle-3" />
-
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="orb-1" />
-            <div className="orb-2" />
-            <div className="orb-3" />
-          </div>
-
-          <div className="relative max-w-6xl mx-auto px-4">
-            <div className="text-center mb-16 scroll-reveal">
-              <h2 className="text-4xl font-light text-white mb-4">Advanced Features</h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
-                Discover the next generation of 3D printing capabilities with our cutting-edge features designed for
-                professionals and enthusiasts alike.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "AI-Powered Business Consulting",
-                  desc: "Get instant, expert-driven guidance for starting, optimizing, and scaling your 3D printing business",
-                },
-                {
-                  title: "Strategic Market Insights",
-                  desc: "Stay ahead with real-time trends, profitability analysis, and industry forecasts.",
-                },
-                {
-                  title: "Smart Equipment Recommendations",
-                  desc: "Find the best 3D printers, materials, and software tailored to your business needs.",
-                },
-                {
-                  title: "Hackathon & Innovation Support",
-                  desc: "Encourage breakthrough ideas and fund innovative projects in 3D printing.",
-                },
-                {
-                  title: "Affiliate Marketplace for Growth",
-                  desc: "Access one-stop platform for tools, resources, and strategic vendor partnerships.",
-                },
-                {
-                  title: "Smart Workflow",
-                  desc: "Streamlined workflow with intelligent print queue management.",
-                },
-              ].map(({title, desc }, i) => (
-                <div
-                  key={i}
-                  className="feature-card group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all duration-500 scroll-reveal"
-                  style={{ transitionDelay: `${i * 0.1}s` }}
-                >
-                  <div className="relative z-10">
-                    <h3 className="text-xl font-light text-white mb-2">{title}</h3>
-                    <p className="text-gray-400 font-light">{desc}</p>
-                  </div>
-                  <div className="card-glow" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
-
 
         <div className="relative py-32 features-bg">
   {/* ✨ Floating Animated Orbs for Depth */}
@@ -291,128 +191,6 @@ function Homepage() {
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* Get in Touch Section */}
-        {/* <div className="relative py-24">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12">
-              <div className="glass-effect p-8 rounded-2xl border border-white/10 scroll-reveal">
-                <h2 className="text-3xl font-light text-white mb-6">Get in Touch</h2>
-                <p className="text-gray-400 mb-8">
-                  Have questions about our 3D printing solutions? We're here to help you bring your ideas to life.
-                </p>
-
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
-                      <Mail size={20} className="text-purple-400" />
-                    </div>
-                    <div>
-                      <p className="text-white font-light">Email</p>
-                      <a
-                        href="mailto:contact@printmaster.com"
-                        className="text-purple-400 hover:text-purple-300 transition-colors"
-                      >
-                        contact@printmaster.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
-                      <Phone size={20} className="text-purple-400" />
-                    </div>
-                    <div>
-                      <p className="text-white font-light">Phone</p>
-                      <a href="tel:+1234567890" className="text-purple-400 hover:text-purple-300 transition-colors">
-                        +1 (234) 567-890
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
-                      <MapPin size={20} className="text-purple-400" />
-                    </div>
-                    <div>
-                      <p className="text-white font-light">Location</p>
-                      <p className="text-gray-400">123 Innovation Street, Tech City, TC 12345</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="glass-effect p-8 rounded-2xl border border-white/10 scroll-reveal"
-                style={{ transitionDelay: "0.2s" }}
-              >
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-white font-light mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-purple-500/20"
-                      placeholder="Your name"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-white font-light mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-purple-500/20"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-white font-light mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-purple-500/20"
-                      placeholder="Your message..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full px-8 py-4 rounded-xl bg-purple-500/10 text-purple-400 font-light border border-purple-500/20 hover:bg-purple-500/20 transition-all duration-300"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
         {/* Footer */}
         <footer className="relative py-16 footer-gradient overflow-hidden  border-t border-white/10 ">
   {/* ✨ Glowing Effects */}
@@ -491,8 +269,6 @@ function Homepage() {
 </footer>
 
       </div>
-
-      {/* <Chatbot /> */}
     </div>
   )
 }
