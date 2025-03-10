@@ -32,6 +32,22 @@ const GoogleLogin = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen w-[100vw] overflow-hidden bg-[#090014]">
+      {/* 🔙 Back to Home Button */}
+      <motion.button
+        className="cursor-pointer z-10 absolute top-6 left-6 flex items-center px-4 py-2 bg-gray-800/70 text-white rounded-full shadow-md backdrop-blur-lg hover:bg-gray-700 transition-all"
+        onClick={() => navigate("/")}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <img
+          src="https://img.icons8.com/ios-filled/50/ffffff/left.png"
+          alt="Back Icon"
+          className="w-5 h-5 mr-2"
+        />
+        Back to Home
+      </motion.button>
+
       {/* ✨ Subtle Animated Neon Grid Background */}
       <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 opacity-15">
         {Array.from({ length: 144 }).map((_, i) => (

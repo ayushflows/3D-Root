@@ -81,9 +81,9 @@ function Homepage() {
               <p className="text-lg sm:text-xl text-gray-300 mb-8 font-light leading-relaxed">
               We believe in transforming the 3D printing industry with the right knowledge, strategies, and tools which bridges the gap between innovation and business success.
               </p>
-              <button className="group relative w-[220px] py-4 rounded-full bg-gradient-to-r from-[#3b82f6] to-[#6366f1] via-[#4f46e5] text-white font-medium border border-white/10 hover:from-[#4f46e5] hover:to-[#3b82f6] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.05] active:scale-[0.98]">
+              <button onClick={()=>navigate("/login")} className="group relative w-[220px] py-4 rounded-full bg-gradient-to-r from-[#3b82f6] to-[#6366f1] via-[#4f46e5] text-white font-medium border border-white/10 hover:from-[#4f46e5] hover:to-[#3b82f6] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.05] active:scale-[0.98]">
       <span className="relative z-10 flex items-center justify-center gap-2">
-        <a onClick={()=>navigate("/login")} className="flex items-center gap-2">
+        <a className="flex items-center gap-2">
         Start Exploring <LogIn className="w-5 h-5 opacity-80 group-hover:translate-x-1 transition-transform duration-300" />
         </a>
       </span>
