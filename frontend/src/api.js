@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    // baseURL: "https://threed-root.onrender.com/auth",
-    baseURL: "http://localhost:8080/auth",
+    baseURL: "https://threed-root.onrender.com/auth",
+    // baseURL: "http://localhost:8080/auth",
     // withCredentials: true,
 });
 
