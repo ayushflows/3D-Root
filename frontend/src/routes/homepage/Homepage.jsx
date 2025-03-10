@@ -2,12 +2,14 @@
 
 import { useEffect } from "react"
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Navbar from '../../components/Navbar';
 import Chatbot from '../../components/Chatbot';
-import { Cpu, Layers, Zap, Printer, Settings, Users, Mail, Phone, MapPin } from "lucide-react"
+import { LogIn } from "lucide-react";
+import { motion } from "framer-motion";
 
 function Homepage() {
+  const navigate = useNavigate();
   useEffect(() => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
@@ -35,14 +37,37 @@ function Homepage() {
     return () => observer.disconnect()
   }, [])
 
+  const switchDashboard = ()=>{
+    const token = localStorage.getItem("user-info");
+    if (token) {
+      navigate("/dashboard");
+    } else {
+      navigate("/login");
+    }
+  }
+
   return (
     <div className="relative min-h-screen mesh-gradient overflow-hidden page-transition">
-      <div className="fixed inset-0 grid-pattern opacity-30" />
+      {/* <div className="fixed inset-0 grid-pattern opacity-30" /> */}
 
-      <div className="fixed inset-0 overflow-hidden">
+      {/* <div className="fixed inset-0 overflow-hidden">
         <div className="absolute inset-0 light-beam opacity-20" />
         <div className="absolute inset-0 light-beam opacity-20" style={{ animationDelay: "-4s" }} />
+      </div> */}
+
+      <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 opacity-15">
+        {Array.from({ length: 144 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="w-[12px] h-[12px] bg-purple-500/10 rounded-full"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, delay: i * 0.005 }}
+          />
+        ))}
       </div>
+      <div className="absolute top-16 left-16 w-40 h-40 bg-purple-600/20 blur-3xl rounded-full animate-pulse"></div>
+      <div className="absolute bottom-16 right-16 w-32 h-32 bg-indigo-500/20 blur-3xl rounded-full animate-pulse"></div>
 
       <Navbar />
 
@@ -67,10 +92,14 @@ function Homepage() {
               <p className="text-lg sm:text-xl text-gray-300 mb-8 font-light leading-relaxed">
               We believe in transforming the 3D printing industry with the right knowledge, strategies, and tools which bridges the gap between innovation and business success.
               </p>
-              <button className="group relative w-fit px-8 py-4 rounded-full bg-white/5 backdrop-blur-sm text-white font-light border border-white/20 hover:bg-white/10 transition-all duration-300">
-                <span className="relative z-10">  <Link to="/dashboard">Get Started</Link></span>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-indigo-500/20 blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </button>
+              <button className="group relative w-[220px] py-4 rounded-full bg-gradient-to-r from-[#3b82f6] to-[#6366f1] via-[#4f46e5] text-white font-medium border border-white/10 hover:from-[#4f46e5] hover:to-[#3b82f6] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.05] active:scale-[0.98]">
+      <span className="relative z-10 flex items-center justify-center gap-2">
+        <a onClick={()=>switchDashboard()} className="flex items-center gap-2">
+        Start Exploring <LogIn className="w-5 h-5 opacity-80 group-hover:translate-x-1 transition-transform duration-300" />
+        </a>
+      </span>
+      <div className="absolute inset-0 rounded-full bg-white/10 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    </button>
             </div>
 
             <div className="relative group scroll-reveal" style={{ transitionDelay: "0.2s" }}>
@@ -120,7 +149,7 @@ function Homepage() {
         </div> */}
 
         {/* Features Section */}
-        {/* <div className="relative py-32 features-bg">
+        <div className="relative py-32 features-bg">
           <div className="circle-animation circle-1" />
           <div className="circle-animation circle-2" />
           <div className="circle-animation circle-3" />
@@ -143,45 +172,36 @@ function Homepage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  icon: Printer,
                   title: "Multi-Material Printing",
                   desc: "Print with multiple materials simultaneously for complex, functional parts.",
                 },
                 {
-                  icon: Settings,
                   title: "Advanced Calibration",
                   desc: "Auto-calibration system ensures perfect bed leveling and print quality.",
                 },
                 {
-                  icon: Zap,
                   title: "Real-time Monitoring",
                   desc: "Monitor your prints remotely with live HD camera feed and status updates.",
                 },
                 {
-                  icon: Users,
                   title: "Community Hub",
                   desc: "Join our thriving community to share designs and get inspired.",
                 },
                 {
-                  icon: Layers,
                   title: "Layer Analysis",
                   desc: "AI-powered layer analysis for optimal print quality and error detection.",
                 },
                 {
-                  icon: Cpu,
                   title: "Smart Workflow",
                   desc: "Streamlined workflow with intelligent print queue management.",
                 },
-              ].map(({ icon: Icon, title, desc }, i) => (
+              ].map(({title, desc }, i) => (
                 <div
                   key={i}
                   className="feature-card group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all duration-500 scroll-reveal"
                   style={{ transitionDelay: `${i * 0.1}s` }}
                 >
                   <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Icon size={24} className="text-purple-400" />
-                    </div>
                     <h3 className="text-xl font-light text-white mb-2">{title}</h3>
                     <p className="text-gray-400 font-light">{desc}</p>
                   </div>
@@ -190,7 +210,7 @@ function Homepage() {
               ))}
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* Get in Touch Section */}
         {/* <div className="relative py-24">
