@@ -414,52 +414,82 @@ function Homepage() {
         </div> */}
 
         {/* Footer */}
-        <footer className="relative py-12 footer-gradient">
-          <div className="footer-glow footer-glow-1" />
-          <div className="footer-glow footer-glow-2" />
+        <footer className="relative py-16 footer-gradient overflow-hidden  border-t border-white/10 ">
+  {/* ✨ Glowing Effects */}
+  <div className="footer-glow footer-glow-1" />
+  <div className="footer-glow footer-glow-2" />
 
-          <div className="max-w-6xl mx-auto px-4 relative z-10">
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="scroll-reveal">
-                <div className="flex items-center space-x-2 mb-4">
-                  <h3 className="text-3xl font-light text-white">
-                    3D
-                    <span className="font-normal bg-gradient-to-r from-purple-200 to-indigo-200 bg-clip-text text-transparent">
-                      Root
-                    </span>
-                  </h3>
-                </div>
-                <p className="text-gray-400 font-light">
-                3DRoot is your trusted partner in achieving sustainable growth and innovation.
-                </p>
-              </div>
+  <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+    <div className="grid md:grid-cols-4 gap-10">
+      {/* 🚀 Brand Section */}
+      <div className="scroll-reveal">
+        <div className="flex items-center space-x-2 mb-4">
+          <h3 className="text-4xl font-light text-white">
+            3D
+            <span className="font-semibold bg-gradient-to-r from-purple-300 to-indigo-400 bg-clip-text text-transparent">
+              Root
+            </span>
+          </h3>
+        </div>
+        <p className="text-gray-400 font-light leading-relaxed">
+          Your trusted partner in achieving sustainable growth & innovation in 3D printing.
+        </p>
+      </div>
 
+      {/* 🔗 Quick Links */}
+      <div className="scroll-reveal" style={{ transitionDelay: "0.4s" }}>
+        <h4 className="text-xl text-white font-semibold mb-4">Quick Links</h4>
+        <ul className="space-y-3">
+          <li>
+            <a href="/" className="text-gray-400 hover:text-white transition-colors">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
+              Contact Us
+            </a>
+          </li>
+        </ul>
+      </div>
 
-              <div className="scroll-reveal" style={{ transitionDelay: "0.6s" }}>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Privacy Policy
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Terms of Service
-                    </a>
-                  </li>
-                  <li>
-                  </li>
-                </ul>
-              </div>
-            </div>
+      {/* 📜 Legal Links */}
+      <div className="scroll-reveal" style={{ transitionDelay: "0.6s" }}>
+        <h4 className="text-xl text-white font-semibold mb-4">Legal</h4>
+        <ul className="space-y-3">
+          <li>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              Terms of Service
+            </a>
+          </li>
+        </ul>
+      </div>
 
-            {/* <div className="pt-12 border-t border-white/10 text-center scroll-reveal">
-              <p className="text-gray-400 font-light">
-                &copy; {new Date().getFullYear()} All rights reserved.
-              </p>
-            </div> */}
-          </div>
-        </footer>
+      {/* 📩 Contact & Buttons */}
+      <div className="scroll-reveal" style={{ transitionDelay: "0.8s" }}>
+        <h4 className="text-xl text-white font-semibold mb-4">Get in Touch</h4>
+        <p className="text-gray-400 leading-relaxed mb-4">
+          Have questions? Reach out to us anytime.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="/contact"
+            className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-medium shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
       </div>
 
       {/* <Chatbot /> */}
