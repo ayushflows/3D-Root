@@ -147,8 +147,8 @@ function Homepage() {
           desc: "One-stop platform for tools, resources, and vendor partnerships.",
         },
         {
-          title: "Intelligent Workflow Automation",
-          desc: "Streamline your workflow with automated print queue management.",
+          title: "Skill Development & Training",
+          desc: "Empowering individuals and businesses with expert 3D printing training.",
         },
       ].map(({ title, desc }, i) => (
         <div
