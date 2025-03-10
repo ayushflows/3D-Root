@@ -224,7 +224,7 @@ function Homepage() {
             </a>
           </li>
           <li>
-            <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
+            <a onClick={() => setContactShown(true)} className="text-gray-400 hover:text-white transition-colors cursor-pointer">
               Contact Us
             </a>
           </li>
@@ -256,7 +256,7 @@ function Homepage() {
         </p>
         <div className="flex flex-wrap gap-4">
           <a
-            href="/contact"
+            onClick={() => setContactShown(true)}
             className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-medium shadow-lg hover:scale-105 transition-transform duration-300"
           >
             Contact Us
